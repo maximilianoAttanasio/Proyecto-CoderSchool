@@ -1,0 +1,15 @@
+@use "mixin";
+
+/* === CSS Header === */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* === Queries Header === */
+@include mixin.tamanio(small) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

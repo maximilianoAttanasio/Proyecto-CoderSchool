@@ -1,0 +1,15 @@
+@mixin tamanio($breakpoint) {
+  @if $breakpoint == medium {
+    @media (max-width: 768px) {
+      @content;
+    }
+  } @else if $breakpoint == small {
+    @media (max-width: 500px) {
+      @content;
+    }
+  }
+}
+
+@mixin borders($width, $style, $color) {
+  border: $width $style $color;
+}

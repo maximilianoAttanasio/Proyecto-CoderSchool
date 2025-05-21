@@ -1,0 +1,53 @@
+@use "variables";
+
+/* === CSS Generales === */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  // border: 1px solid red;
+}
+
+body {
+  width: 100%;
+  max-width: variables.$anchoMaximo; /* Establezco un ancho máximo al proyecto */
+  margin: 0 auto;
+  background-color: variables.$colorFondo;
+  /* Coloco el footer al final de la página sin importar el tamaño del contenido */
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+  font-family: variables.$fuentePrincipal;
+}
+
+main {
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  max-width: variables.$anchoImg;
+}
+
+.titlePage {
+  margin: 1rem 0;
+  border-bottom: 2px solid variables.$colorFooterBorde;
+  max-width: 600px;
+}
+
+.btn {
+  display: block;
+  width: fit-content;
+  margin: 1rem auto;
+  padding: 1rem;
+  border: 1px solid #000;
+  border-radius: variables.$radioBtn;
+  color: variables.$colorTexto;
+  text-align: center;
+  text-decoration: none;
+}

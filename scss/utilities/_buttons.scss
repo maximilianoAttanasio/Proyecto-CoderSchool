@@ -1,0 +1,30 @@
+@use "base";
+@use 'variables';
+
+/* === CSS Botones === */
+.btnDetails {
+  @extend .btn;
+  background-color: variables.$colorBoton;
+  color: variables.$colorTextoBotones;
+  border: none;
+
+  &:hover {
+    background-color: variables.$colorBotonHover;
+    color: variables.$colorTextoBotones;
+  }
+}
+
+// === Botón Volver ===
+.btnVolver {
+  @extend .btn;
+  margin: 5rem auto 1rem auto;
+  padding: 1rem 2rem;
+  background-color: variables.$colorBoton;
+  color: variables.$colorTextoBotones;
+  border: none;
+
+  &:hover {
+    background-color: variables.$colorBotonHover;
+    color: variables.$colorTextoBotones;
+  }
+}

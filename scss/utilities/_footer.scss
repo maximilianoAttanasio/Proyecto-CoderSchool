@@ -1,0 +1,24 @@
+@use "mixin";
+
+/* === CSS Footer === */
+footer {
+  margin-top: 25px;
+  padding: 1rem;
+  border-top: 1px solid #000;
+  text-align: center;
+  .footerContacto {
+    display: flex;
+    justify-content: space-evenly;
+    padding-bottom: .5rem;
+  }
+}
+
+/* === Queries Footer === */
+@include mixin.tamanio(small) {
+  .footerContacto {
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    text-align: center;
+  }
+}

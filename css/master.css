@@ -1,9 +1,9 @@
+@charset "UTF-8";
 /* === CSS Generales === */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  /* border: 1px solid red; */
 }
 
 body {
@@ -15,7 +15,7 @@ body {
   display: grid;
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
-  font-family: nunito;
+  font-family: "Nunito", sans-serif;
 }
 
 main {
@@ -32,7 +32,13 @@ img {
   max-width: 250px;
 }
 
-.btn {
+.titlePage {
+  margin: 1rem 0;
+  border-bottom: 2px solid #000;
+  max-width: 600px;
+}
+
+.btn, .btnDetails, .btnVolver {
   display: block;
   width: fit-content;
   margin: 1rem auto;
@@ -44,10 +50,27 @@ img {
   text-decoration: none;
 }
 
-.titlePage {
-  margin: 1rem 0;
-  border-bottom: 2px solid #000;
-  max-width: 600px;
+/* === CSS Botones === */
+.btnDetails {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+}
+.btnDetails:hover {
+  background-color: #50bb54;
+  color: #fff;
+}
+
+.btnVolver {
+  margin: 5rem auto 1rem auto;
+  padding: 1rem 2rem;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+}
+.btnVolver:hover {
+  background-color: #50bb54;
+  color: #fff;
 }
 
 /* === CSS Header === */
@@ -56,19 +79,13 @@ img {
   font-weight: bold;
 }
 
-/* .navbar {
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  border-bottom: 1px solid #000;
+/* === Queries Header === */
+@media (max-width: 500px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
-
-.navbar li a {
-  text-decoration: none;
-  color: #000;
-} */
-
 /* === CSS Footer === */
 footer {
   margin-top: 25px;
@@ -76,32 +93,38 @@ footer {
   border-top: 1px solid #000;
   text-align: center;
 }
-
-.footerContacto {
+footer .footerContacto {
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 0.5rem;
 }
 
+/* === Queries Footer === */
+@media (max-width: 500px) {
+  .footerContacto {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
 /* === CSS Index === */
 .hero {
   padding: 40px;
   text-align: center;
 }
-
 .hero h1 {
   font-size: 32px;
   margin-bottom: 10px;
 }
-
-.heroText {
+.hero .heroText {
   font-size: 18px;
   max-width: 700px;
   margin: 0 auto;
 }
 
 .popularCourses li {
-  background-color: #ffffff;
+  background-color: #fff;
   margin-bottom: 10px;
   padding: 10px 15px;
   border-radius: 4px;
@@ -109,12 +132,10 @@ footer {
   display: flex;
   justify-content: space-between;
 }
-
 .popularCourses li span {
   font-weight: bold;
 }
-
-.popularCourses a {
+.popularCourses li a {
   text-decoration: none;
   color: #007bff;
   font-size: 0.9em;
@@ -124,31 +145,28 @@ footer {
   background-color: #f8f9fa;
   border-radius: 8px;
 }
-
-.testimonio {
+.testimonios .testimonio {
   margin-bottom: 20px;
   padding: 15px;
   border-left: 4px solid #007bff;
   background-color: #fff;
 }
-
-.testimonio p {
+.testimonios .testimonio p {
   margin: 0 0 10px 0;
   font-style: italic;
   color: #212529;
 }
-
-.testimonio span {
+.testimonios .testimonio span {
   display: block;
   text-align: right;
   color: #6c757d;
   font-size: 0.9em;
 }
 
-.actionCall {
-  text-align: center;
+.popularCourses,
+.testimonios {
+  margin-bottom: 2rem;
 }
-
 .popularCourses h2,
 .testimonios h2 {
   padding: 1rem;
@@ -156,11 +174,6 @@ footer {
   color: #212529;
   margin-bottom: 15px;
   border-radius: 5px;
-}
-
-.popularCourses,
-.testimonios {
-  margin-bottom: 2rem;
 }
 
 /* === CSS Cursos y Novedades === */
@@ -173,33 +186,23 @@ footer {
   overflow: hidden;
   display: flex;
 }
-
 .cursoCard img,
 .newsCard img {
   width: 250px;
   height: fit-content;
   margin-right: 20px;
 }
-
-.cardBody {
+.cursoCard .cardBody,
+.newsCard .cardBody {
   display: flex;
   flex-direction: column;
   gap: 5px;
   overflow: hidden;
 }
-
-.cardBody h2 {
+.cursoCard .cardBody h2,
+.newsCard .cardBody h2 {
   padding: 1rem 0;
   font-size: 2rem;
-}
-
-.btnDetails {
-  background-color: #4caf50;
-  color: #fff;
-}
-
-.btnDetails:hover {
-  background-color: #50bb54;
 }
 
 /* === CSS Detalles === */
@@ -210,8 +213,11 @@ footer {
   margin: 2rem;
   align-items: start;
 }
-
-.courseInfo {
+.courseContent .left img {
+  display: block;
+  margin: 0 auto;
+}
+.courseContent .left .courseInfo {
   margin-top: 1rem;
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -221,39 +227,17 @@ footer {
   border: 1px solid #ddd;
   border-radius: 5px;
 }
-
-.details {
+.courseContent .right .details {
   margin-left: 1rem;
   margin-top: 1rem;
 }
-
-.details li {
+.courseContent .right .details li {
   margin-left: 2rem;
   list-style: disc;
 }
-
-.recommended a {
+.courseContent .right .recommended a {
   display: block;
   margin-top: 5px;
-}
-
-.left img {
-  display: block;
-  margin: 0 auto;
-}
-
-.btnVolver {
-  display: block;
-  width: fit-content;
-  margin: 5rem auto 1rem auto;
-  padding: 1rem 2rem;
-  background-color: #4caf50;
-  color: #fff;
-}
-
-/* En lo personal dejaría esto junto al hover de detalles por contener las mismas líneas, para evitar confusiones se dejarán por separado */
-.btnVolver:hover {
-  background-color: #50bb54;
 }
 
 .modelo {
@@ -267,17 +251,16 @@ footer {
 .infoSection {
   margin-top: 1rem;
 }
-
-.infoAbout {
+.infoSection .infoAbout {
   font-size: 32px;
   padding-bottom: 5px;
 }
-
-.infoSection ul li {
+.infoSection .infoAbout ul li {
   margin: 1rem 2rem;
   list-style: none;
 }
 
+/* === Queries Main === */
 @media (max-width: 768px) {
   main {
     margin: 0 auto;
@@ -285,25 +268,20 @@ footer {
     margin-top: 3rem;
     font-size: 14px;
   }
-
   .cursoCard img,
   .newsCard img {
     width: 100%;
     margin-right: 20px;
   }
-
   .cardBody {
     text-align: center;
   }
-
   .cardBody h2 {
     font-size: 1.5rem;
   }
-
   .courseContent {
     grid-template-columns: 200px 1fr;
   }
-
   .courseInfo {
     margin-top: 1rem;
     grid-template-columns: repeat(2, 1fr);
@@ -311,47 +289,31 @@ footer {
     padding: 1rem 0.5rem;
     border-radius: 5px;
   }
-
   .infoSection {
     padding: 1rem;
   }
 }
-
 @media (max-width: 500px) {
   main {
     margin: 0 auto;
     font-size: 12px;
     margin-top: 4rem;
   }
-
-  .navbar {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footerContacto {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    text-align: center;
-  }
-
   .cursoCard,
   .newsCard {
     flex-direction: column;
   }
-
   .cursoCard img,
   .newsCard img {
     width: 200px;
     margin: 0 auto;
   }
-
   .courseContent {
     grid-template-columns: 1fr;
   }
-
   .infoAbout {
     font-size: 20px;
   }
 }
+
+/*# sourceMappingURL=master.css.map */
