@@ -15,7 +15,9 @@ CoderSchool es un sitio web desarrollado como entrega para el curso de Desarroll
 ---
 
 ##  Sitio Web
-Puedes ver el sitio desde [este link](https://maximilianoattanasio.github.io/Proyecto-CoderSchool/)
+Puedes ver el sitio desde [este link](https://github.com/maximilianoAttanasio/Proyecto-CoderSchool.git)
+
+---
 
 ## Utilizar el proyecto localmente
 ### 1. Clonar el repositorio
